@@ -1,0 +1,14 @@
+
+Assignment 3/bin/moviesdb/RedBlackTree.class
+*.class
+*.prefs
+*.ini
+*.setup
+*.log
+*.dat
+*.db
+*.txt
+Assignment 3/.classpath
+Assignment 3/.project
+.metadata/.plugins/org.eclipse.ui.intro/introstate
+*.index
