@@ -11,7 +11,10 @@ import java.util.Map;
 
 import Query.And;
 import Query.Equal;
+import Query.GT;
+import Query.LT;
 import Query.Not;
+import Query.Or;
 import Query.Query;
 
 /**
@@ -79,7 +82,7 @@ public class MoviesDB<T extends Comparable<T>> {
 		  MoviesDB movieDB = new MoviesDB("simple.csv");
 		  movieDB.addFieldIndex("year");
 		  movieDB.addFieldIndex("imdb_score");
-		  Query<Integer> query = new And<Integer>(new Equal("year",1999), new Not(new Equal("year",2000)));
+		  Query<Integer> query = new Or<Integer>(new Equal("year",2001), new Not(new GT("year",2001)));
 
 
 		  HashSet<Integer> result = (HashSet<Integer>) query.execute(movieDB.getIndexTreeMap());

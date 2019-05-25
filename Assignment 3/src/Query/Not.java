@@ -15,7 +15,7 @@ import moviesdb.RedBlackTree;
  */
 public final class Not<T extends Comparable<T>> extends UnaryQuery<T> {
 
-	public Not(Query expr) {
+	public Not(Query<T> expr) {
 		super(expr);
 	}
 

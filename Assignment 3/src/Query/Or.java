@@ -21,6 +21,7 @@ public final class Or<T extends Comparable<T>> extends BinaryQuery<T> {
 
 	private HashSet<Integer> orCombine(HashSet<Integer> left, HashSet<Integer> right)
 	{
+		@SuppressWarnings("unchecked") // we are literally cloning the same type
 		HashSet<Integer> composite = (HashSet<Integer>) left.clone();
 		
 		for (Integer ri : right)

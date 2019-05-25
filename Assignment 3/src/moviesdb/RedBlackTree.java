@@ -126,6 +126,34 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         return get(root, key);
     }
 
+    
+    /**
+     * Returns the value(s) less than the given key.
+     * @param key the key
+     * @param lessThan whether to return values lessThan or greater Than
+     * @param qualifyingItems The list of items found
+     * @return the value associated with the given key if the key is in the symbol table
+     *     and {@code null} if the key is not in the symbol table
+     * @throws IllegalArgumentException if {@code key} is {@code null}
+     */
+    public Value get(Key key, boolean lessThan, List qualifyingItems) {
+        if (key == null) throw new IllegalArgumentException("argument to get() is null");
+        if (qualifyingItems == null) throw new IllegalArgumentException("argument to get() is null");
+        
+        return get(root, key);
+    }
+    
+    // value associated with the given key in subtree rooted at x; null if no such key
+    private Iterable<Node> get(Node x, boolean lessThan, Key key) {
+        while (x != null) {
+            int cmp = key.compareTo(x.key);
+            if      (cmp < 0) x = x.left;
+            else if (cmp > 0) x = x.right;
+            else              return x.val;
+        }
+        return null;
+    }
+    
     // value associated with the given key in subtree rooted at x; null if no such key
     private Value get(Node x, Key key) {
         while (x != null) {
@@ -557,6 +585,29 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         return keys(min(), max());
     }
 
+    /**
+     * Returns all keys less than or greater than x
+     */
+    public Iterable<Key> getKeys(Key x, boolean lessThan)
+    {
+        if (x == null) throw new IllegalArgumentException("first argument to getKeys() is null");
+        
+    	Key min = null;
+    	Key max = null;
+
+    	if (lessThan)
+    	{
+    	  min = min(root).key;
+    	  max = x;
+    	}
+    	else {
+    	  min = x;
+    	  max = max(root).key;
+    	}
+
+    	return keys(min, max);
+    }
+    
     /**
      * Returns all keys in the symbol table in the given range,
      * as an {@code Iterable}.

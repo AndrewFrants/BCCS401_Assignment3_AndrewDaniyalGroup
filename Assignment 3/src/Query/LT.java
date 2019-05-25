@@ -42,7 +42,14 @@ public final class LT<T extends Comparable<T>> implements Query<T> {
 
 	@Override
 	public HashSet<Integer> execute(Map<String, RedBlackTree<T, HashSet<Integer>>> indexTreeMap) {
-		// TODO Auto-generated method stub
-		return null;
+		HashSet<Integer> compositeMovies = new HashSet<Integer>();
+		
+		RedBlackTree<T, HashSet<Integer>> rb = indexTreeMap.get(type);
+		for (T set : rb.getKeys(value, true))
+		{
+			compositeMovies.addAll(rb.get(set));
+		}
+		
+		return compositeMovies;
 	}
 }

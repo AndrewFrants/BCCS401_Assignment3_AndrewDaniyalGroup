@@ -12,6 +12,7 @@ Assignment 3/.classpath
 Assignment 3/.project
 .metadata/.plugins/org.eclipse.ui.intro/introstate
 *.index
+.metadata/*
 .metadata/.lock
 .metadata/.mylyn/.taskListIndex/segments_1
 .metadata/.mylyn/.taskListIndex/write.lock
@@ -260,3 +261,4 @@ Assignment 3/.project
 .metadata/.plugins/org.eclipse.tips.ide/dialog_settings.xml
 .metadata/.plugins/org.eclipse.ui.workbench/dialog_settings.xml
 .metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml
+*.png

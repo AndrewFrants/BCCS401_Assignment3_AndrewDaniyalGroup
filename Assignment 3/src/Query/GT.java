@@ -3,6 +3,8 @@
  */
 package Query;
 
+import java.awt.List;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 
@@ -42,7 +44,13 @@ public final class GT<T extends Comparable<T>> implements Query<T> {
 
 	@Override
 	public HashSet<Integer> execute(Map<String, RedBlackTree<T, HashSet<Integer>>> indexTreeMap) {
-		// TODO Auto-generated method stub
-		return null;
+		HashSet<Integer> compositeMovies = new HashSet<Integer>();
+		
+		RedBlackTree<T, HashSet<Integer>> rb = indexTreeMap.get(type);
+		for (T set : rb.getKeys(value, false))
+		{
+			compositeMovies.addAll(rb.get(set));
+		}
+		return compositeMovies;
 	}
 }

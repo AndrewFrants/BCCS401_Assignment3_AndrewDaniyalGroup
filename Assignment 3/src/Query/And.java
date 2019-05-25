@@ -21,7 +21,7 @@ public final class And<T extends Comparable<T>> extends BinaryQuery<T> {
 
 	private HashSet<Integer> andCombine(HashSet<Integer> left, HashSet<Integer> right)
 	{
-		HashSet<Integer> composite = (HashSet<Integer>) left.clone();
+		HashSet<Integer> composite = new HashSet<Integer>();
 		
 		for (Integer ri : right)
 		{
