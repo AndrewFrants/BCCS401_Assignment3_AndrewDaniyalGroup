@@ -45,9 +45,11 @@ public final class LT<T extends Comparable<T>> implements Query<T> {
 		HashSet<Integer> compositeMovies = new HashSet<Integer>();
 		
 		RedBlackTree<T, HashSet<Integer>> rb = indexTreeMap.get(type);
-		for (T set : rb.getKeys(value, true))
-		{
-			compositeMovies.addAll(rb.get(set));
+		if (rb != null) {
+			for (T set : rb.getKeys(value, true))
+			{
+				compositeMovies.addAll(rb.get(set));
+			}
 		}
 		
 		return compositeMovies;

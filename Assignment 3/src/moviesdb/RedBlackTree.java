@@ -6,6 +6,7 @@
 
 package moviesdb;
 
+import java.util.List;
 import java.util.NoSuchElementException;
 
 import edu.princeton.cs.algs4.Queue;
@@ -143,8 +144,20 @@ public class RedBlackTree<Key extends Comparable<Key>, Value> {
         return get(root, key);
     }
     
+    /*
     // value associated with the given key in subtree rooted at x; null if no such key
     private Iterable<Node> get(Node x, boolean lessThan, Key key) {
+        while (x != null) {
+            int cmp = key.compareTo(x.key);
+            if      (cmp < 0) x = x.left;
+            else if (cmp > 0) x = x.right;
+            else              return x;
+        }
+        return null;
+    }
+    */
+    
+    private Value get(Node x, boolean lessThan, Key key) {
         while (x != null) {
             int cmp = key.compareTo(x.key);
             if      (cmp < 0) x = x.left;

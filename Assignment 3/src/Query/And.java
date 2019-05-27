@@ -23,6 +23,9 @@ public final class And<T extends Comparable<T>> extends BinaryQuery<T> {
 	{
 		HashSet<Integer> composite = new HashSet<Integer>();
 		
+		if (right == null || left == null)
+			return composite;
+		
 		for (Integer ri : right)
 		{
 			if (left.contains(ri))

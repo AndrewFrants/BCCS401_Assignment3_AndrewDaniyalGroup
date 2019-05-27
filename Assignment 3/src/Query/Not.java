@@ -24,17 +24,24 @@ public final class Not<T extends Comparable<T>> extends UnaryQuery<T> {
 		RedBlackTree<T, HashSet<Integer>> allItems = indexTreeMap.get(this.right.getType());
 		
 		HashSet<Integer> transform = new HashSet<Integer>();
-		HashSet<Integer> not = this.right.execute(indexTreeMap);
+		HashSet<Integer> not = new HashSet<Integer>();
 		
-		for (T ri : allItems.keys())
+		if (this.right != null)
 		{
-			for(Integer midx : allItems.get(ri))
+			not = this.right.execute(indexTreeMap);
+		}
+		
+		if (allItems != null) {
+			for (T ri : allItems.keys())
 			{
-				if (!not.contains(midx))
+				for(Integer midx : allItems.get(ri))
 				{
-					transform.add(midx);
+					if (!not.contains(midx))
+					{
+						transform.add(midx);
+					}
+						
 				}
-					
 			}
 		}
 		

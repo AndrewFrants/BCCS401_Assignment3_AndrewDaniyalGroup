@@ -1,49 +1,42 @@
-/**
- * 
- */
-package moviesdb;
-
-/**
- * @author andreyf
- *
- */
 public class Movie {
 	
 	private int id;
-	private String color;
+	private String Color;
 	private String movie_title;
 	private String genres;
-	private int duration;
+	private String duration;
 	private String director_name;
 	private String actor_1_name;
 	private String actor_2_name;
 	private String actor_3_name;
+	private String plot_keywords;
 	private String movie_imdb_link;
 	private String language;
 	private String country;
 	private String content_rating;
-	private int title_year;
-	private double imdb_score;
+	private String title_year;
+	private String imdb_score;
 	
 	
-	public Integer getId() {
-		return (Integer)id;
+	public int getId() {
+		return id;
 	}
 	
 	public Movie() {
 		
 	}
 
+
 	public void setId(int id) {
 		this.id = id;
 	}
 
 	public String getColor() {
-		return color;
+		return Color;
 	}
 
 	public void setColor(String color) {
-		this.color = color;
+		Color = color;
 	}
 
 	public String getMovie_title() {
@@ -62,11 +55,11 @@ public class Movie {
 		this.genres = genres;
 	}
 
-	public Integer getDuration() {
-		return (Integer)duration;
+	public String getDuration() {
+		return duration;
 	}
 
-	public void setDuration(int duration) {
+	public void setDuration(String duration) {
 		this.duration = duration;
 	}
 
@@ -102,6 +95,14 @@ public class Movie {
 		this.actor_3_name = actor_3_name;
 	}
 
+	public String getPlot_keywords() {
+		return plot_keywords;
+	}
+
+	public void setPlot_keywords(String plot_keywords) {
+		this.plot_keywords = plot_keywords;
+	}
+
 	public String getMovie_imdb_link() {
 		return movie_imdb_link;
 	}
@@ -134,38 +135,23 @@ public class Movie {
 		this.content_rating = content_rating;
 	}
 
-	public Integer getTitle_year() {
-		return (Integer)title_year;
+	public String getTitle_year() {
+		return title_year;
 	}
 
-	public void setTitle_year(int title_year) {
+	public void setTitle_year(String title_year) {
 		this.title_year = title_year;
 	}
 
-	public Double getImdb_score() {
-		return (Double)imdb_score;
+	public String getImdb_score() {
+		return imdb_score;
 	}
 
-	public void setImdb_score(double imdb_score) {
+	public void setImdb_score(String imdb_score) {
 		this.imdb_score = imdb_score;
 	}
-	
-	@Override
-	public  String toString() {
-		StringBuilder sb = new StringBuilder();
-		sb.append("Title: ");
-		sb.append(this.getMovie_title());
-		sb.append(", ");
-		sb.append("Year: ");
-		sb.append(this.getTitle_year());
-		sb.append(", ");
-		sb.append("Score: ");
-		sb.append(this.getImdb_score());
-		sb.append(", ");
-		sb.append("Rating: ");
-		sb.append(this.getContent_rating());
-		sb.append(", ");
-		return sb.toString();
-	}
-}
 
+	
+	
+
+}

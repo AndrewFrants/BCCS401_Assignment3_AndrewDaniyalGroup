@@ -1,10 +1,9 @@
 /**
- * 
+ * Greater than
+ * Authors: Andrew Frantsuzov, Daniyal Ar
  */
 package Query;
 
-import java.awt.List;
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Map;
 
@@ -51,6 +50,9 @@ public final class GT<T extends Comparable<T>> implements Query<T> {
 		{
 			compositeMovies.addAll(rb.get(set));
 		}
+		
+		compositeMovies.addAll(rb.get(value));
+		
 		return compositeMovies;
 	}
 }
