@@ -45,7 +45,7 @@ public class Movie {
 	}
 
 	public void setColor(String color) {
-		this.color = color;
+		color = color;
 	}
 
 	public String getMovie_title() {
