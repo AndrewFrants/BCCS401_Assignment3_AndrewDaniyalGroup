@@ -59,8 +59,12 @@ public class MoviesDB<T extends Comparable<T>> {
 		}
 		
 		// calls addField method based on field input
-		if (field == "year") {
+		else if (field == "year") {
 			addFieldYear(field, rbt, set);
+		}
+
+		else if (field == "duration") {
+			addFieldDuration(field, rbt, set);
 		}
 
 		else if (field == "score") {
@@ -97,6 +101,7 @@ public class MoviesDB<T extends Comparable<T>> {
 		else if (field == "content_rating") {
 			addFieldContentRating(field, rbt, set);
 		}
+		
 		indexTreeMap.put(field, rbt); //puts the generated RBT into the HashMap
 	}
 
@@ -158,7 +163,7 @@ public class MoviesDB<T extends Comparable<T>> {
 			}
 			mov.setId(Integer.parseInt(movieAttributes[0])); //sets the movie id
 			mov.setColor(movieAttributes[1]);
-			mov.setMovie_title(movieAttributes[2].trim());
+			mov.setMovie_title(movieAttributes[2]);
 			
 			//Sets the duration to an Integer value if possible
 			try {
@@ -243,6 +248,24 @@ public class MoviesDB<T extends Comparable<T>> {
 		}
 
 	}
+	
+	private void addFieldDuration(String field, RedBlackTree<T, HashSet<Integer>> rbt, HashSet<Integer> set)  {
+		for (int i = 0; i < n; i++) {
+			set = new HashSet<Integer>();
+
+			if (!rbt.contains((T) db[i].getDuration())) {
+				set.add(db[i].getId());
+				rbt.put((T) db[i].getDuration(), set);
+			}
+
+			else {
+				HashSet<Integer> insert = rbt.get((T) db[i].getDuration());
+				insert.add(db[i].getId());
+				rbt.put((T) db[i].getDuration(), insert);
+			}
+		}
+	}
+	
 	/*
 	 * This method takes the string field, RBT, and a HashSet to insert a Red Black Tree into the HashMap
 	 * where the keys will be the different color options, and the Values will be a set of movie IDs with that 
@@ -288,6 +311,7 @@ public class MoviesDB<T extends Comparable<T>> {
 			}
 		}
 	}
+	
 	/*
 	 * This method takes the string field, RBT, and a HashSet to insert a Red Black Tree into the HashMap
 	 * where the keys will be the different movie titles, and the Values will be a set of movie IDs with 

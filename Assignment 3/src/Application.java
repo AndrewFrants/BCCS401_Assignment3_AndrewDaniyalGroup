@@ -30,13 +30,15 @@ public class Application {
 		//adds field criteria 
 		movieDB.addFieldIndex("movie_title");
 		movieDB.addFieldIndex("year");
+		movieDB.addFieldIndex("duration");
 		movieDB.addFieldIndex("score");
 		movieDB.addFieldIndex("color");
 		movieDB.addFieldIndex("content_rating");
 		movieDB.addFieldIndex("act_2");
 		
 		//Creates a query
-		Query<String> query = new Or(new Equal("movie_title", "Man of Steel"), new Equal("movie_title", "Avatar"), new Equal("movie_title", "Running"));
+		Query<String> query = new And(new LT("duration", 180), new GTE("score", 7.1));
+		Query<String> query2 = new Equal("movie_title", "Avatar ");
 		//runs query and stores the movie id's is a hashtable
 		HashSet<Integer> result = (HashSet<Integer>) query.execute(movieDB.getIndexTreeMap());
 
