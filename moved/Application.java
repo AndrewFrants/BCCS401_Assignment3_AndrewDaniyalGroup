@@ -36,7 +36,7 @@ public class Application {
 		movieDB.addFieldIndex("act_2");
 		
 		//Creates a query
-		Query<String> query = new Or(new Equal("movie_title", "Man of Steel"), new Equal("movie_title", "Avatar"), new Equal("movie_title", "Running"));
+		Query<String> query = new Equal("movie_title", "Man of Steel ");
 		//runs query and stores the movie id's is a hashtable
 		HashSet<Integer> result = (HashSet<Integer>) query.execute(movieDB.getIndexTreeMap());
 

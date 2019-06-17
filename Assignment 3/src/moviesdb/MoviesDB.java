@@ -158,7 +158,7 @@ public class MoviesDB<T extends Comparable<T>> {
 			}
 			mov.setId(Integer.parseInt(movieAttributes[0])); //sets the movie id
 			mov.setColor(movieAttributes[1]);
-			mov.setMovie_title(movieAttributes[2]);
+			mov.setMovie_title(movieAttributes[2].trim());
 			
 			//Sets the duration to an Integer value if possible
 			try {
