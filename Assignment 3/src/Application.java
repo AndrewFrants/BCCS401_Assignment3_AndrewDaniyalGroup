@@ -28,6 +28,7 @@ public class Application {
 		MoviesDB movieDB = new MoviesDB("movie_metadata.csv"); //movie Database object, using csv file
 		
 		//adds field criteria 
+		movieDB.addFieldIndex("movie_title");
 		movieDB.addFieldIndex("year");
 		movieDB.addFieldIndex("score");
 		movieDB.addFieldIndex("color");
@@ -35,8 +36,7 @@ public class Application {
 		movieDB.addFieldIndex("act_2");
 		
 		//Creates a query
-		Query<String> query = new And(new GT("score", 8.3), new LTE("year", 1990), 
-				new Equal("content_rating", "PG"));
+		Query<String> query = new Equal("movie_title", "Man of Steel ");
 		//runs query and stores the movie id's is a hashtable
 		HashSet<Integer> result = (HashSet<Integer>) query.execute(movieDB.getIndexTreeMap());
 

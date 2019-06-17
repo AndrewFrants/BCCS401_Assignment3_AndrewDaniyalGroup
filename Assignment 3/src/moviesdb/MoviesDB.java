@@ -54,6 +54,10 @@ public class MoviesDB<T extends Comparable<T>> {
 
 		HashSet<Integer> set = new HashSet<Integer>(); // set to insert movie ID's as the RBT's values
 
+		if (field == "movie_title") {
+			addFieldTitle(field, rbt, set);
+		}
+		
 		// calls addField method based on field input
 		if (field == "year") {
 			addFieldYear(field, rbt, set);
@@ -293,16 +297,16 @@ public class MoviesDB<T extends Comparable<T>> {
 		for (int i = 0; i < n; i++) {
 			set = new HashSet<Integer>();
 
-			if (!rbt.contains((T) db[i].getTitle_year())) {
+			if (!rbt.contains((T) db[i].getMovie_title())) {
 				set.add(db[i].getId());
-				rbt.put((T) db[i].getTitle_year(), set);
+				rbt.put((T) db[i].getMovie_title(), set);
 
 			}
 
 			else {
-				HashSet<Integer> insert = rbt.get((T) db[i].getTitle_year());
+				HashSet<Integer> insert = rbt.get((T) db[i].getMovie_title());
 				insert.add(db[i].getId());
-				rbt.put((T) db[i].getTitle_year(), insert);
+				rbt.put((T) db[i].getMovie_title(), insert);
 			}
 		}
 	}
